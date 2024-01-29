@@ -1,4 +1,3 @@
-import { NodeJS } from "node:types";
 import { useEffect, useState } from "react";
 
 export default function ProgressBar(
@@ -15,7 +14,8 @@ export default function ProgressBar(
     const [time, setTime] = useState(100)
 
     useEffect(() => {
-        let interval: NodeJS.Timeout | null = null;
+
+        let interval: number | null = null;
 
         if (assignWorkers > 0 && progress < 100) {
             interval = setInterval(() => {
