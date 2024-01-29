@@ -1,0 +1,56 @@
+.progressBarContainer {
+    border: 1px solid transparent;
+    width: 80vw;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    .description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            font-weight: bold;
+            font-size: large;
+        }
+
+        .workersContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            p {
+                font-size: small;    
+                font-weight: bold;
+            }
+        }
+    }
+
+    .myBar {
+        width: 100%;
+        height: 25px;
+        border: 2px solid black;
+        border-radius: 15px;
+        background-color: gray;
+      
+        position: relative;
+        margin-top: 5px;
+      
+        .myProgress {
+          width: 20%;
+          height: 100%;
+          background-color: orange;
+          border-radius: 15px;
+      
+          position: absolute;
+        }
+      
+        .progress {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: bold;
+        }
+    }
+}
