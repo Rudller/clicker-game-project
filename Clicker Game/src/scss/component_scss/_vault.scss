@@ -1,0 +1,25 @@
+.vault__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid $secondary-color;
+
+    margin-bottom: 20px
+;
+
+    h2 {
+        margin: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-shadow: black;
+    }
+
+    .vault__resourcess{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+}

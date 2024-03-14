@@ -1,24 +1,75 @@
-.progressBar__container {
+.progressBar {
     border: 1px solid $secondary-color;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     width: 80vw;
-    height: 20px;
 
-    position: relative;
+    margin: 0 auto;
 
-    cursor: pointer;
-    
-
-    .progressBar__progress__fill {
-        background-color: red;
-        height: 100%;
-        width: 0;
+    h2 {
+        margin-top: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-shadow: black;
     }
 
-    .progressBar__value {
-        z-index: 1;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    .progressBar__container {
+        border: 1px solid $secondary-color;
+        border-radius: 5px;
+        height: 25px;
+        width: 90%;
+        position: relative;
+
+        margin-top: 10px;
+    
+        cursor: pointer;
+        
+        &:hover {
+            box-shadow: white 0px 0px 10px 0px;
+        }
+    
+        .progressBar__progress__fill {
+            border-radius: 5px;
+            background-color: $button-color;
+            height: 100%;
+            width: 0;
+        }
+    
+        .progressBar__value {
+            font-weight: bold;
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    .progressBar_workers {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        margin: 10px 10px;
+
+    
+        button {
+            width: 30px;
+            height: 30px;
+    
+            background-color: $button-color;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
     }
 }
+
