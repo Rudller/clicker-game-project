@@ -9,16 +9,21 @@ function App() {
   const [resources, setResources] = useState({
     workers: 10,
     wood: 0,
+    stone: 0,
   })
 
   const handleResourceValueChange = (resourceName, newValue) => {
-    setResources({
-      ...resources,
+    setResources(prevResources => ({
+      ...prevResources,
       [resourceName]: newValue,
-    });
+    }));
   };
 
   const [isBuild, setIsBuild] = useState({
+    house: {
+      name: 'House',
+      status: true,
+    },
     quarry: {
       name: 'Quarry',
       status: false,
@@ -36,7 +41,12 @@ function App() {
     <>
       <Header/>
       <Vault resources={resources}/>
-      <Build isBuild={isBuild} handleIsBuildChange={handleIsBuildChange} />
+      <Build 
+        isBuild={isBuild} 
+        handleIsBuildChange={handleIsBuildChange} 
+        resources={resources}
+        handleResourceValueChange={handleResourceValueChange}
+      />
     {/* WOOD */}
       <ProgressBar 
         resourceName="Wood"
@@ -44,6 +54,14 @@ function App() {
         handleResourceValue={handleResourceValueChange}
         workers={resources.workers}
       />
+      {/* Stone */}
+      {isBuild.quarry.status && 
+      <ProgressBar 
+        resourceName="Stone"
+        resourceValue={resources.stone}
+        handleResourceValue={handleResourceValueChange}
+        workers={resources.workers}
+      />}
     </>
   )
 }

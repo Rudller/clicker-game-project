@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid $secondary-color;
+    border-radius: 15px;
     margin-bottom: 20px;
 
     h2{
@@ -14,5 +15,41 @@
     }
     &__container {
         display: flex;
+        gap: 20px;
+
+        .build__element {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $secondary-color;
+            border-radius: 15px;
+
+            h3 {
+                margin: 10px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                text-shadow: black;
+            }
+
+            p {
+                margin: 10px;
+                font-size: 1rem;
+                text-shadow: black;
+            }
+
+            button {
+                margin: 10px;
+                padding: 10px;
+                background-color: $button-color;
+                color: $font-color;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: darken($button-color, 20%);
+                }
+            }
+        }
     }
 }

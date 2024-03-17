@@ -8,6 +8,7 @@ export default function Vault({ resources }) {
             <div className='vault__resourcess'>
                 <p>Workers: {resources.workers}</p>
                 <p>Wood: {resources.wood}</p>
+                <p>Stone: {resources.stone}</p>
             </div>
         </div>
     )
