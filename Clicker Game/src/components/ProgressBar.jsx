@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-export default function ProgressBar({ resourceName, resourceValue, handleResourceValue, workers, handleWorkersValue}) {
+export default function ProgressBar({ resourceName, resourceValue, handleResourceValue, workers }) {
     const [progress, setProgress] = useState(0);
     const [assignedWorkers, setAssignedWorkers] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
@@ -13,25 +13,25 @@ export default function ProgressBar({ resourceName, resourceValue, handleResourc
             } else if (progress < 100) {
                 setProgress(progress + 1);
             } else if (progress === 100){
-                handleResourceValue(resourceValue + 1);
+                handleResourceValue(resourceName.toLowerCase() ,resourceValue + 1);
                 setProgress(0);
             }
         }, 100 - (assignedWorkers * 10));
         return () => clearInterval(interval);
-    }, [progress, resourceValue, handleResourceValue, assignedWorkers, isRunning]);
+    }, [progress, resourceValue, handleResourceValue, assignedWorkers, isRunning, resourceName]);
 
     const btnHandler = () => {
-        setIsRunning(true)
+        handleResourceValue(resourceName.toLowerCase() ,resourceValue + 1);
     }
 
     const btnHandleWorkers = (newValue) => {
         if(newValue === 1 && workers > 0) {
             setAssignedWorkers(assignedWorkers + 1);
-            handleWorkersValue(workers - 1);
+            handleResourceValue('workers', workers - 1);
             setIsRunning(true);
         } else if (newValue === -1 && assignedWorkers > 0) {
             setAssignedWorkers(assignedWorkers - 1);
-            handleWorkersValue(workers + 1);
+            handleResourceValue('workers', workers + 1);
             if (assignedWorkers === 1) {
                 setIsRunning(false);
             }
