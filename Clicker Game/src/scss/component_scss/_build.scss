@@ -5,7 +5,8 @@
     align-items: center;
     border: 1px solid $secondary-color;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    width: 80vw;
 
     h2{
         margin: 10px;
@@ -20,8 +21,15 @@
         .build__element {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             border: 1px solid $secondary-color;
             border-radius: 15px;
+
+            width: 20%;
+            flex-grow: 1;
+            height: 160px;
+
+            margin: 10px auto;
 
             h3 {
                 margin: 10px;

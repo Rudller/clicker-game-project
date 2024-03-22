@@ -10,7 +10,7 @@ export default function Build({ isBuild, handleIsBuildChange, resources, handleR
                 {/* House */}
                 <div className='build__element'>
                     <h3>House</h3>
-                    <p>Require 10 wood to build</p>
+                    <p>Require 10 wood</p>
                     <button onClick={() => {
                         if(resources.wood >= 10) {
                             handleResourceValueChange('wood', resources.wood - 10);
@@ -22,7 +22,7 @@ export default function Build({ isBuild, handleIsBuildChange, resources, handleR
                 {!isBuild.quarry.status && 
                 <div className='build__element'>
                     <h3>Quarry</h3>
-                    <p>Require 50 wood to build</p>
+                    <p>Require 50 wood</p>
                     <button onClick={() => {
                         if(resources.wood >= 50) {
                             handleResourceValueChange('wood', resources.wood - 50);
@@ -30,6 +30,21 @@ export default function Build({ isBuild, handleIsBuildChange, resources, handleR
                         }
                         }}>Build</button>
                 </div>}
+                {/* Mine */}
+                {!isBuild.mine.status && 
+                <div className='build__element'>
+                    <h3>Mine</h3>
+                    <p>Require 200 wood and 100 stone</p>
+                    <button onClick={() => {
+                        if(resources.wood >= 100) {
+                            handleResourceValueChange('wood', resources.wood - 200);
+                            handleResourceValueChange('stone', resources.stone - 100);
+                            handleIsBuildChange('mine', {name: 'Mine', status: true})
+                        }
+                        }}>Build</button>
+                </div>}
+                {/* Farm */}
+                
             </div>
         </div>
     )
